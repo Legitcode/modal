@@ -1,10 +1,9 @@
+require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -20,58 +19,65 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var Slug = (function (_React$Component) {
-  _inherits(Slug, _React$Component);
+var _simpleReactModal = require('simple-react-modal');
 
-  function Slug(props) {
-    _classCallCheck(this, Slug);
+var _simpleReactModal2 = _interopRequireDefault(_simpleReactModal);
 
-    _get(Object.getPrototypeOf(Slug.prototype), 'constructor', this).call(this);
-    var closeOnOuterClick = true;
-    if (props.closeOnOuterClick === false) closeOnOuterClick = false;
+var App = (function (_React$Component) {
+  _inherits(App, _React$Component);
 
-    this.state = {
-      display: 'none',
-      closeOnOuterClick: closeOnOuterClick
-    };
-    this.hide = this.hide.bind(this);
-    this.hideOnOuterClick = this.hideOnOuterClick.bind(this);
+  function App() {
+    _classCallCheck(this, App);
+
+    _get(Object.getPrototypeOf(App.prototype), 'constructor', this).apply(this, arguments);
   }
 
-  _createClass(Slug, [{
-    key: 'hideOnOuterClick',
-    value: function hideOnOuterClick(event) {
-      if (!this.state.closeOnOuterClick) return;
-
-      if (event.target.dataset.modal) this.setState({ display: 'none' });
-    }
-  }, {
-    key: 'hide',
-    value: function hide() {
-      this.setState({ display: 'none' });
-    }
-  }, {
+  _createClass(App, [{
     key: 'show',
     value: function show() {
-      this.setState({ display: 'block' });
+      this.refs.modal.show();
     }
   }, {
     key: 'render',
     value: function render() {
+      var _this = this;
+
       return _react2['default'].createElement(
         'div',
-        _extends({ style: this.state }, this.props, { onClick: this.hideOnOuterClick, 'data-modal': "true" }),
+        null,
         _react2['default'].createElement(
-          'div',
-          { style: this.state },
-          this.props.children
+          'a',
+          { onClick: this.show.bind(this) },
+          'Open Modal'
+        ),
+        _react2['default'].createElement(
+          _simpleReactModal2['default'],
+          { ref: "modal",
+            className: "simple-modal-base test",
+            closeOnOuterClick: false },
+          _react2['default'].createElement(
+            'a',
+            { className: "close", onClick: function () {
+                _this.refs.modal.hide();
+              } },
+            'X'
+          ),
+          _react2['default'].createElement(
+            'div',
+            null,
+            'hey'
+          )
         )
       );
     }
   }]);
 
-  return Slug;
+  return App;
 })(_react2['default'].Component);
 
-exports['default'] = Slug;
+exports['default'] = App;
+
+_react2['default'].render(_react2['default'].createElement(App, null), document.getElementById('app'));
 module.exports = exports['default'];
+
+},{"react":undefined,"simple-react-modal":undefined}]},{},[1]);
