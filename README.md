@@ -9,7 +9,7 @@
 An incredibly simple modal dialog, because after writing [this post](http://reactjsnews.com/modals-in-react/), I found none of the ones listed let you easily overwrite the css!
 
 ~~~js
-import Modal from 'simple-modal'
+import Modal from 'simple-react-modal'
 import 'simple-react-modal/dist/modal' //import the base css
 
 export default class App extends React.Component{
