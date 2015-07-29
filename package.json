@@ -1,0 +1,38 @@
+{
+  "name": "simplereact--modal",
+  "description": "The simplest modal",
+  "version": "0.0.1",
+  "main": "./build/simple-modal.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "build": "gulp clean && NODE_ENV=production gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zackify/simple-modal.git"
+  },
+  "keywords": [
+    "reactjs",
+    "modal",
+    "react",
+    "component"
+  ],
+  "browserify-shim": {
+    "react": "global:React"
+  },
+  "author": "Zach Silveira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zackify/simple-modal/issues"
+  },
+  "devDependencies": {
+    "react-component-gulp-tasks": "^0.7.0",
+    "gulp": "^3.8.11"
+  },
+  "homepage": "https://github.com/zackify/simple-modal",
+  "dependencies": {
+    "react": "^0.13.3"
+  }
+}
