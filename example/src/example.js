@@ -1,5 +1,5 @@
 import React from 'react'
-import Modal from 'simple-modal'
+import Modal from 'simple-react-modal'
 
 export default class App extends React.Component{
 
