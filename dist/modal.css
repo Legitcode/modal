@@ -1,4 +1,4 @@
-.simple-modal {
+.simple-modal-base {
   position: fixed;
   font-family: Arial, Helvetica, sans-serif;
   top: 0;
@@ -15,14 +15,14 @@
   opacity: 1;
   pointer-events: auto;
 }
-.simple-modal > div {
+.simple-modal-base > div {
   width: 400px;
   position: relative;
   margin: 10% auto;
   padding: 5px 20px 13px 20px;
   background: #fff;
 }
-.simple-modal .close {
+.simple-modal-base .close {
   background: #606061;
   color: #FFFFFF;
   line-height: 25px;
@@ -41,6 +41,6 @@
   box-shadow: 1px 1px 3px #000;
   cursor: pointer;
 }
-.simple-modal .close:hover {
+.simple-modal-base .close:hover {
   background: #00d9ff;
 }
