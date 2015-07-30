@@ -22,25 +22,25 @@ var _react = (typeof window !== "undefined" ? window['React'] : typeof global !=
 
 var _react2 = _interopRequireDefault(_react);
 
-var Slug = (function (_React$Component) {
-  _inherits(Slug, _React$Component);
+var Modal = (function (_React$Component) {
+  _inherits(Modal, _React$Component);
 
-  function Slug(props) {
-    _classCallCheck(this, Slug);
+  function Modal(props) {
+    _classCallCheck(this, Modal);
 
-    _get(Object.getPrototypeOf(Slug.prototype), 'constructor', this).call(this);
+    _get(Object.getPrototypeOf(Modal.prototype), 'constructor', this).call(this);
     var closeOnOuterClick = true;
     if (props.closeOnOuterClick === false) closeOnOuterClick = false;
 
     this.state = {
-      display: 'none',
+      display: false,
       closeOnOuterClick: closeOnOuterClick
     };
     this.hide = this.hide.bind(this);
     this.hideOnOuterClick = this.hideOnOuterClick.bind(this);
   }
 
-  _createClass(Slug, [{
+  _createClass(Modal, [{
     key: 'hideOnOuterClick',
     value: function hideOnOuterClick(event) {
       if (!this.state.closeOnOuterClick) return;
@@ -50,32 +50,33 @@ var Slug = (function (_React$Component) {
   }, {
     key: 'hide',
     value: function hide() {
-      this.setState({ display: 'none' });
+      this.setState({ display: false });
     }
   }, {
     key: 'show',
     value: function show() {
-      this.setState({ display: 'block' });
+      this.setState({ display: true });
     }
   }, {
     key: 'render',
     value: function render() {
+      if (!this.state.display) return null;
       return _react2['default'].createElement(
         'div',
-        _extends({ style: this.state }, this.props, { onClick: this.hideOnOuterClick, 'data-modal': "true" }),
+        _extends({}, this.props, { onClick: this.hideOnOuterClick, 'data-modal': "true" }),
         _react2['default'].createElement(
           'div',
-          { style: this.state },
+          null,
           this.props.children
         )
       );
     }
   }]);
 
-  return Slug;
+  return Modal;
 })(_react2['default'].Component);
 
-exports['default'] = Slug;
+exports['default'] = Modal;
 module.exports = exports['default'];
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})

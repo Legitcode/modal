@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class Slug extends React.Component{
+export default class Modal extends React.Component{
 
   constructor(props){
     super()
@@ -8,7 +8,7 @@ export default class Slug extends React.Component{
     if(props.closeOnOuterClick === false) closeOnOuterClick = false
 
     this.state = {
-      display: 'none',
+      display: false,
       closeOnOuterClick
     }
     this.hide = this.hide.bind(this)
@@ -22,17 +22,18 @@ export default class Slug extends React.Component{
   }
 
   hide(){
-    this.setState({display: 'none'})
+    this.setState({display: false})
   }
 
   show(){
-    this.setState({display: 'block'})
+    this.setState({display: true})
   }
 
   render(){
+    if(!this.state.display) return null
     return (
-      <div style={this.state} {...this.props} onClick={this.hideOnOuterClick} data-modal="true">
-        <div style={this.state}>
+      <div {...this.props} onClick={this.hideOnOuterClick} data-modal="true">
+        <div>
           {this.props.children}
         </div>
       </div>
