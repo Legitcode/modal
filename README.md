@@ -56,6 +56,5 @@ export default class App extends React.Component{
 
 Everything else will be merged and you're free to apply any props you want. Minimum required props would be `show` and probably a className.
 
-You have the option to call `this.refs.modal.show()` and `hide()` similar to other modals out there in react.
 The big difference is that you can require the css from 'simple-react-modal/dist/modal' and easily add other classes that make it look however you like.
 Customizing the style is easy, to target the actual content area it will be `.your-class div`.
