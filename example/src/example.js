@@ -3,19 +3,30 @@ import Modal from 'simple-react-modal'
 
 export default class App extends React.Component{
 
+  constructor(){
+    super()
+    this.state = {}
+  }
+
   show(){
-    this.refs.modal.show()
+    this.setState({show: true})
+  }
+
+  close(){
+    this.setState({show: false})
   }
 
   render(){
     return (
       <div>
       <a onClick={this.show.bind(this)}>Open Modal</a>
-        <Modal ref="modal"
+        <Modal
         className="simple-modal-base test"
-        closeOnOuterClick={false}>
+        closeOnOuterClick={true}
+        show={this.state.show}
+        onClose={this.close.bind(this)}>
 
-        <a className="close" onClick={()=>{this.refs.modal.hide()}}>X</a>
+        <a className="close" onClick={this.close.bind(this)}>X</a>
         <div>hey</div>
 
         </Modal>

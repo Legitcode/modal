@@ -14,22 +14,34 @@ import 'simple-react-modal/dist/modal' //import the base css
 
 export default class App extends React.Component{
 
-  show(){
-    this.refs.modal.show()
+  constructor(){
+    super()
+    this.state = {}
   }
+
+  show(){
+    this.setState({show: true})
+  }
+
+  close(){
+    this.setState({show: false})
+  }
+
 
   render(){
     return (
       <div>
       <a onClick={this.show.bind(this)}>Open Modal</a>
-        <Modal ref="modal"
-        className="simple-modal test"
-        closeOnOuterClick={false}>
+      <Modal
+      className="simple-modal-base test"
+      closeOnOuterClick={true}
+      show={this.state.show}
+      onClose={this.close.bind(this)}>
 
-        <a className="close" onClick={()=>{this.refs.modal.hide()}}>X</a>
-        <div>hey</div>
+      <a className="close" onClick={this.close.bind(this)}>X</a>
+      <div>hey</div>
 
-        </Modal>
+      </Modal>
       </div>
     )
   }
@@ -38,8 +50,11 @@ export default class App extends React.Component{
 
 ###props
 
-`closeOnOuterClick`: If somone clicks outside of the modal when it's in focus, should it close? You choose.
-Everything else will be merged and you're free to apply any props you want.
+- `closeOnOuterClick`: If someone clicks outside of the modal when it's in focus, should it close? You choose. (bool)
+- `show`: true or false
+- `onClose`: when the modal is sending the close event (only happens is `closeOnOuterClick` is true)
+
+Everything else will be merged and you're free to apply any props you want. Minimum required props would be `show` and probably a className.
 
 You have the option to call `this.refs.modal.show()` and `hide()` similar to other modals out there in react.
 The big difference is that you can require the css from 'simple-react-modal/dist/modal' and easily add other classes that make it look however you like.
