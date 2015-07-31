@@ -1,5 +1,5 @@
 import React from 'react'
-import Modal from 'simple-react-modal'
+import Modal, {closeClass} from 'simple-react-modal'
 
 export default class App extends React.Component{
 
@@ -21,12 +21,11 @@ export default class App extends React.Component{
       <div>
       <a onClick={this.show.bind(this)}>Open Modal</a>
         <Modal
-        className="simple-modal-base test"
         closeOnOuterClick={true}
         show={this.state.show}
         onClose={this.close.bind(this)}>
 
-        <a className="close" onClick={this.close.bind(this)}>X</a>
+        <a style={closeClass} onClick={this.close.bind(this)}>X</a>
         <div>hey</div>
 
         </Modal>
