@@ -7,7 +7,7 @@
 ###Simple?
 
 ~~~js
-<Modal show={this.state.show}>
+<Modal show={this.state.show} onClose={this.close}>
   <div>hey, click outside of me to close me!</div>
 </Modal>
 ~~~
