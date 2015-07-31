@@ -62,8 +62,8 @@ export default class Modal extends React.Component{
     }
 
     return (
-      <div {...this.props} style={modal || this.props.style} onClick={this.hideOnOuterClick} data-modal="true">
-        <div style={container}>
+      <div {...this.props} style={Object.assign({},modal,this.props.style)} onClick={this.hideOnOuterClick} data-modal="true">
+        <div style={Object.assign({},container,this.props.containerStyle)}>
           {this.props.children}
         </div>
       </div>
