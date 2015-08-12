@@ -7,9 +7,8 @@ var modal = {
   left: 0,
   background: 'rgba(0, 0, 0, 0.8)',
   zIndex: 99999,
-  transition: 'opacity 400ms ease-in',
-  opacity: 1,
-  pointerEvents: 'auto',
+  transition: 'opacity 1s ease-in',
+  pointerEvents: 'auto'
 }
 
 var container = {
@@ -17,7 +16,7 @@ var container = {
   position: 'relative',
   margin: '10% auto',
   padding: '5px 20px 13px 20px',
-  background: '#fff',
+  background: '#fff'
 }
 
 var close = {

@@ -12,8 +12,7 @@ var modal = {
   left: 0,
   background: 'rgba(0, 0, 0, 0.8)',
   zIndex: 99999,
-  transition: 'opacity 400ms ease-in',
-  opacity: 1,
+  transition: 'opacity 1s ease-in',
   pointerEvents: 'auto'
 };
 

@@ -34,6 +34,15 @@ var Modal = (function (_React$Component) {
 
     _get(Object.getPrototypeOf(Modal.prototype), 'constructor', this).call(this);
     this.hideOnOuterClick = this.hideOnOuterClick.bind(this);
+    this.fadeIn = this.fadeIn.bind(this);
+    this.fadeOut = this.fadeOut.bind(this);
+
+    this.state = {
+      opacity: 0,
+      display: 'none',
+      visibility: 'hidden',
+      show: false
+    };
   }
 
   _createClass(Modal, [{
@@ -43,9 +52,44 @@ var Modal = (function (_React$Component) {
       if (event.target.dataset.modal) this.props.onClose(event);
     }
   }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(props) {
+      if (this.props.show != props.show) {
+        if (this.props.transitionSpeed) {
+          if (props.show == true) this.fadeIn();else this.fadeOut();
+        } else this.setState({ show: props.show });
+      }
+    }
+  }, {
+    key: 'fadeIn',
+    value: function fadeIn() {
+      var _this = this;
+
+      this.setState({
+        display: 'block',
+        visibility: 'visible',
+        show: true
+      }, function () {
+        setTimeout(function () {
+          _this.setState({ opacity: 1 });
+        }, 10);
+      });
+    }
+  }, {
+    key: 'fadeOut',
+    value: function fadeOut() {
+      var _this2 = this;
+
+      this.setState({ opacity: 0 }, function () {
+        setTimeout(function () {
+          _this2.setState({ show: false });
+        }, _this2.props.transitionSpeed);
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
-      if (!this.props.show) return null;
+      if (!this.state.show) return null;
       //completely overwrite if they use a class
       if (this.props.className) {
         modalStyle = this.props.style;
@@ -54,6 +98,7 @@ var Modal = (function (_React$Component) {
         var modalStyle = _extends({}, _styles2['default'].modal, this.props.style);
         var containerStyle = _extends({}, _styles2['default'].container, this.props.containerStyle);
       }
+      if (this.props.transitionSpeed) modalStyle = _extends({}, this.state, modalStyle);
 
       return _react2['default'].createElement(
         'div',
@@ -90,8 +135,7 @@ var modal = {
   left: 0,
   background: 'rgba(0, 0, 0, 0.8)',
   zIndex: 99999,
-  transition: 'opacity 400ms ease-in',
-  opacity: 1,
+  transition: 'opacity 1s ease-in',
   pointerEvents: 'auto'
 };
 

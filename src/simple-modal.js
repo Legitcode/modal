@@ -6,6 +6,16 @@ export default class Modal extends React.Component{
   constructor(props){
     super()
     this.hideOnOuterClick = this.hideOnOuterClick.bind(this)
+    this.fadeIn = this.fadeIn.bind(this)
+    this.fadeOut = this.fadeOut.bind(this)
+
+    this.state = {
+      opacity: 0,
+      display: 'none',
+      visibility: 'hidden',
+      show: false
+    }
+
   }
 
   hideOnOuterClick(event){
@@ -13,17 +23,48 @@ export default class Modal extends React.Component{
     if(event.target.dataset.modal) this.props.onClose(event)
   }
 
+  componentWillReceiveProps(props){
+    if(this.props.show != props.show){
+      if(this.props.transitionSpeed){
+        if(props.show == true) this.fadeIn()
+        else this.fadeOut()
+      }
+      else this.setState({show: props.show})
+    }
+  }
+
+  fadeIn(){
+    this.setState({
+      display: 'block',
+      visibility: 'visible',
+      show: true
+    }, ()=>{
+      setTimeout(()=>{
+        this.setState({opacity: 1})
+      },10)
+    })
+  }
+
+  fadeOut(){
+    this.setState({opacity: 0}, ()=>{
+      setTimeout(()=>{
+        this.setState({show: false})
+      }, this.props.transitionSpeed)
+    })
+  }
+
   render(){
-    if(!this.props.show) return null
+    if(!this.state.show) return null
     //completely overwrite if they use a class
     if(this.props.className){
       modalStyle = this.props.style
       containerStyle = this.props.containerStyle
     }
     else{
-      var modalStyle = Object.assign({}, styles.modal ,this.props.style)
-      var containerStyle = Object.assign({},styles.container,this.props.containerStyle)
+      var modalStyle = Object.assign({}, styles.modal, this.props.style)
+      var containerStyle = Object.assign({}, styles.container, this.props.containerStyle)
     }
+    if(this.props.transitionSpeed) modalStyle = Object.assign({}, this.state, modalStyle)
 
     return (
       <div {...this.props} style={modalStyle} onClick={this.hideOnOuterClick} data-modal="true">

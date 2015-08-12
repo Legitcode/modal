@@ -21,9 +21,10 @@ export default class App extends React.Component{
       <div>
       <a onClick={this.show.bind(this)}>Open Modal</a>
         <Modal
-        onOuterClick={false}
+        closeOnOuterClick={true}
         show={this.state.show}
-        onClose={this.close.bind(this)}>
+        onClose={this.close.bind(this)}
+        transitionSpeed={1000}>
 
         <a key="close" style={closeStyle} onClick={this.close.bind(this)}>X</a>
         <div key="content">hey</div>

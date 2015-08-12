@@ -12,6 +12,20 @@
 </Modal>
 ~~~
 
+##New in 0.4
+
+CSS powered transitions! This took a lot of work but is so awesome :)
+
+In your css file have a transition for the opacity: `transition: 'opacity 1s ease-in'`, now all you do is add in the transition speed as a prop. In the css example I just gave, it's one second:
+
+~~~js
+<Modal show={this.state.show} onClose={this.close} transitionSpeed={1000}>
+  <div>hey, click outside of me to close me!</div>
+</Modal>
+~~~
+
+Now the component will open with your transition, and wait to hide until it finishes! Don't like transitions? Leave out the prop and everything works the same.
+
 ##Full Example
 
 An incredibly simple modal dialog, because after writing [this post](http://reactjsnews.com/modals-in-react/), I found none of the ones listed let you easily overwrite the css!
