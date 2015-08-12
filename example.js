@@ -29,19 +29,23 @@ var App = (function (_React$Component) {
   function App() {
     _classCallCheck(this, App);
 
-    _get(Object.getPrototypeOf(App.prototype), 'constructor', this).apply(this, arguments);
+    _get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this);
+    this.state = {};
   }
 
   _createClass(App, [{
     key: 'show',
     value: function show() {
-      this.refs.modal.show();
+      this.setState({ show: true });
+    }
+  }, {
+    key: 'close',
+    value: function close() {
+      this.setState({ show: false });
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this = this;
-
       return _react2['default'].createElement(
         'div',
         null,
@@ -52,19 +56,19 @@ var App = (function (_React$Component) {
         ),
         _react2['default'].createElement(
           _simpleReactModal2['default'],
-          { ref: "modal",
-            className: "simple-modal-base test",
-            closeOnOuterClick: false },
+          {
+            closeOnOuterClick: true,
+            show: this.state.show,
+            onClose: this.close.bind(this),
+            transitionSpeed: 1000 },
           _react2['default'].createElement(
             'a',
-            { className: "close", onClick: function () {
-                _this.refs.modal.hide();
-              } },
+            { key: "close", style: _simpleReactModal.closeStyle, onClick: this.close.bind(this) },
             'X'
           ),
           _react2['default'].createElement(
             'div',
-            null,
+            { key: "content" },
             'hey'
           )
         )
