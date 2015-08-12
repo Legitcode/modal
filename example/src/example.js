@@ -25,8 +25,8 @@ export default class App extends React.Component{
         show={this.state.show}
         onClose={this.close.bind(this)}>
 
-        <a style={closeStyle} onClick={this.close.bind(this)}>X</a>
-        <div>hey</div>
+        <a key="close" style={closeStyle} onClick={this.close.bind(this)}>X</a>
+        <div key="content">hey</div>
 
         </Modal>
       </div>

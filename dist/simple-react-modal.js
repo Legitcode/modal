@@ -46,13 +46,13 @@ var Modal = (function (_React$Component) {
     key: 'render',
     value: function render() {
       if (!this.props.show) return null;
-      var modalStyle = _extends({}, _styles2['default'].modal, this.props.style);
-      var containerStyle = _extends({}, _styles2['default'].container, this.props.containerStyle);
-
       //completely overwrite if they use a class
       if (this.props.className) {
         modalStyle = this.props.style;
         containerStyle = this.props.containerStyle;
+      } else {
+        var modalStyle = _extends({}, _styles2['default'].modal, this.props.style);
+        var containerStyle = _extends({}, _styles2['default'].container, this.props.containerStyle);
       }
 
       return _react2['default'].createElement(

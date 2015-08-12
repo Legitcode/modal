@@ -15,13 +15,14 @@ export default class Modal extends React.Component{
 
   render(){
     if(!this.props.show) return null
-    var modalStyle = Object.assign({},styles.modal,this.props.style)
-    var containerStyle = Object.assign({},styles.container,this.props.containerStyle)
-
     //completely overwrite if they use a class
     if(this.props.className){
       modalStyle = this.props.style
       containerStyle = this.props.containerStyle
+    }
+    else{
+      var modalStyle = Object.assign({}, styles.modal ,this.props.style)
+      var containerStyle = Object.assign({},styles.container,this.props.containerStyle)
     }
 
     return (
