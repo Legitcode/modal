@@ -9,12 +9,22 @@ export default class Modal extends React.Component{
     this.fadeIn = this.fadeIn.bind(this)
     this.fadeOut = this.fadeOut.bind(this)
 
-    this.state = {
-      opacity: 0,
-      display: 'none',
-      visibility: 'hidden',
-      show: false
+    let opacity = 0,
+      display = 'block',
+      visibility = 'hidden';
+
+    if(props.show){
+      opacity = 1;
+      display = 'block';
+      visibility = 'visible'
     }
+
+    this.state = {
+      opacity,
+      display,
+      visibility,
+      show: props.show
+    };
 
   }
 

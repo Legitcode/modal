@@ -35,11 +35,21 @@ var Modal = (function (_React$Component) {
     this.fadeIn = this.fadeIn.bind(this);
     this.fadeOut = this.fadeOut.bind(this);
 
+    var opacity = 0,
+        display = 'block',
+        visibility = 'hidden';
+
+    if (props.show) {
+      opacity = 1;
+      display = 'block';
+      visibility = 'visible';
+    }
+
     this.state = {
-      opacity: 0,
-      display: 'none',
-      visibility: 'hidden',
-      show: false
+      opacity: opacity,
+      display: display,
+      visibility: visibility,
+      show: props.show
     };
   }
 
