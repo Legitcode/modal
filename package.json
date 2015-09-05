@@ -33,6 +33,6 @@
   },
   "homepage": "https://github.com/zackify/simple-modal",
   "dependencies": {
-    "react": "^0.13.3"
+    "react": "^0.14.0-beta1"
   }
 }
