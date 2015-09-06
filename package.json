@@ -1,7 +1,7 @@
 {
   "name": "simple-react-modal",
   "description": "The simplest modal",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "main": "./build/simple-modal.js",
   "directories": {
     "example": "example"
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zackify/simple-react-modal.git"
+    "url": "https://github.com/legitcode/simple-react-modal.git"
   },
   "keywords": [
     "reactjs",
@@ -25,13 +25,13 @@
   "author": "Zach Silveira",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zackify/simple-modal/issues"
+    "url": "https://github.com/legitcode/simple-modal/issues"
   },
   "devDependencies": {
     "react-component-gulp-tasks": "^0.7.0",
     "gulp": "^3.8.11"
   },
-  "homepage": "https://github.com/zackify/simple-modal",
+  "homepage": "https://github.com/legitcode/simple-modal",
   "dependencies": {
     "react": "^0.13.3"
   }
