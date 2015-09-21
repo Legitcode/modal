@@ -98,13 +98,15 @@ var Modal = (function (_React$Component) {
     key: 'render',
     value: function render() {
       if (!this.state.show) return null;
+      var modalStyle = undefined,
+          containerStyle = undefined;
       //completely overwrite if they use a class
       if (this.props.className) {
         modalStyle = this.props.style;
         containerStyle = this.props.containerStyle;
       } else {
-        var modalStyle = _extends({}, _styles2['default'].modal, this.props.style);
-        var containerStyle = _extends({}, _styles2['default'].container, this.props.containerStyle);
+        modalStyle = _extends({}, _styles2['default'].modal, this.props.style);
+        containerStyle = _extends({}, _styles2['default'].container, this.props.containerStyle);
       }
       if (this.props.transitionSpeed) modalStyle = _extends({}, this.state, modalStyle);
 
