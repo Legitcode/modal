@@ -12,9 +12,9 @@
 </Modal>
 ~~~
 
-##New in 0.4
+##Transitions
 
-CSS powered transitions! This took a lot of work but is so awesome :)
+CSS powered transitions!
 
 In your css file have a transition for the opacity: `transition: 'opacity 1s ease-in'`, now all you do is add in the transition speed as a prop. In the css example I just gave, it's one second:
 
@@ -57,6 +57,7 @@ export default class App extends React.Component{
       className="test-class" //this will completely overwrite the default css completely
       style={{background: 'red'}} //overwrites the default background
       containerStyle={{background: 'blue'}} //changes styling on the inner content area
+      containerClassName="test"
       closeOnOuterClick={true}
       show={this.state.show}
       onClose={this.close.bind(this)}>
@@ -77,6 +78,8 @@ export default class App extends React.Component{
 - `show`: true or false
 - `onClose`: when the modal is sending the close event (only happens is `closeOnOuterClick` is true)
 - `className`: this will allow you to completely change the default css located in the component.
+- `containerClassName`: change the class on the containing div
+
 - `containerStyle`: changes styles on the modal content area
 
 Minimum required props would be `show` and `onClose`. You can optionally pull in `closeStyle` to use the default close button.

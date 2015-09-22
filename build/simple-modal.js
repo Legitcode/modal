@@ -115,7 +115,7 @@ var Modal = (function (_React$Component) {
         _extends({}, this.props, { style: modalStyle, onClick: this.hideOnOuterClick, 'data-modal': "true" }),
         _react2['default'].createElement(
           'div',
-          { style: containerStyle },
+          { className: this.props.containerClassName, style: containerStyle },
           this.props.children
         )
       );

@@ -79,7 +79,7 @@ export default class Modal extends React.Component{
 
     return (
       <div {...this.props} style={modalStyle} onClick={this.hideOnOuterClick} data-modal="true">
-        <div style={containerStyle}>
+        <div className={this.props.containerClassName} style={containerStyle}>
           {this.props.children}
         </div>
       </div>
