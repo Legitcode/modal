@@ -8,7 +8,8 @@ var modal = {
   background: 'rgba(0, 0, 0, 0.8)',
   zIndex: 99999,
   transition: 'opacity 1s ease-in',
-  pointerEvents: 'auto'
+  pointerEvents: 'auto',
+  overflowY: 'auto'
 }
 
 var container = {
