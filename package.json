@@ -7,7 +7,8 @@
     "example": "example"
   },
   "scripts": {
-    "build": "gulp clean && NODE_ENV=production gulp build"
+    "build": "gulp clean && NODE_ENV=production gulp build",
+    "test": "mocha --opts ./mocha.opts; eslint ./src/ --ext .jsx,.js --global require,exports:true"
   },
   "repository": {
     "type": "git",
@@ -28,8 +29,12 @@
     "url": "https://github.com/legitcode/modal/issues"
   },
   "devDependencies": {
-    "react-component-gulp-tasks": "^0.7.0",
-    "gulp": "^3.8.11"
+    "babel": "^5.8.23",
+    "chai": "^3.3.0",
+    "gulp": "^3.8.11",
+    "legit-tests": "^0.4.4",
+    "mocha": "^2.3.3",
+    "react-component-gulp-tasks": "^0.7.0"
   },
   "homepage": "https://github.com/legitcode/modal",
   "dependencies": {
