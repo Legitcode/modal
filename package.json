@@ -37,7 +37,7 @@
     "react-component-gulp-tasks": "^0.7.0"
   },
   "homepage": "https://github.com/legitcode/modal",
-  "dependencies": {
-    "react": "^0.13.3"
+  "peerDependencies": {
+    "react": "^0.14.3"
   }
 }
