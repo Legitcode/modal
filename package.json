@@ -1,7 +1,7 @@
 {
   "name": "simple-react-modal",
   "description": "The simplest modal",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "main": "./build/simple-modal.js",
   "directories": {
     "example": "example"
