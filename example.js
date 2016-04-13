@@ -7,7 +7,7 @@ Object.defineProperty(exports, '__esModule', {
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -34,41 +34,77 @@ var App = (function (_React$Component) {
   }
 
   _createClass(App, [{
-    key: 'show',
-    value: function show() {
-      this.setState({ show: true });
-    }
-  }, {
-    key: 'close',
-    value: function close() {
-      this.setState({ show: false });
-    }
-  }, {
     key: 'render',
     value: function render() {
+      var _this = this;
+
       return _react2['default'].createElement(
         'div',
         null,
+        _react2['default'].createElement('br', null),
+        'Both examples allow you to close on clicking outside of the modal.',
         _react2['default'].createElement(
           'a',
-          { onClick: this.show.bind(this) },
-          'Open Modal'
+          { onClick: function () {
+              return _this.setState({ showFade: true });
+            } },
+          _react2['default'].createElement(
+            'h3',
+            null,
+            'Open With Fade'
+          )
         ),
         _react2['default'].createElement(
           _simpleReactModal2['default'],
           {
             closeOnOuterClick: true,
-            show: this.state.show,
-            onClose: this.close.bind(this),
+            show: this.state.showFade,
+            onClose: function () {
+              return _this.setState({ showFade: false });
+            },
             transitionSpeed: 1000 },
           _react2['default'].createElement(
             'a',
-            { key: "close", style: _simpleReactModal.closeStyle, onClick: this.close.bind(this) },
+            { key: 'close', style: _simpleReactModal.closeStyle, onClick: function () {
+                return _this.setState({ showFade: false });
+              } },
             'X'
           ),
           _react2['default'].createElement(
             'div',
-            { key: "content" },
+            { key: 'content' },
+            'hey'
+          )
+        ),
+        _react2['default'].createElement(
+          'a',
+          { onClick: function () {
+              return _this.setState({ showNoFade: true });
+            } },
+          _react2['default'].createElement(
+            'h3',
+            null,
+            'Open Without Fade'
+          )
+        ),
+        _react2['default'].createElement(
+          _simpleReactModal2['default'],
+          {
+            closeOnOuterClick: true,
+            show: this.state.showNoFade,
+            onClose: function () {
+              return _this.setState({ showNoFade: false });
+            } },
+          _react2['default'].createElement(
+            'a',
+            { key: 'close', style: _simpleReactModal.closeStyle, onClick: function () {
+                return _this.setState({ showNoFade: false });
+              } },
+            'X'
+          ),
+          _react2['default'].createElement(
+            'div',
+            { key: 'content' },
             'hey'
           )
         )
