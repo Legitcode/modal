@@ -1,7 +1,7 @@
 {
   "name": "simple-react-modal",
   "description": "The simplest modal",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "main": "./build/simple-modal.js",
   "directories": {
     "example": "example"
@@ -38,6 +38,6 @@
   },
   "homepage": "https://github.com/legitcode/modal",
   "peerDependencies": {
-    "react": "^0.14.3"
+    "react": ">=0.14 || >=15.0"
   }
 }
