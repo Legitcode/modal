@@ -78,7 +78,7 @@ export default class Modal extends React.Component{
     if(this.props.transitionSpeed) modalStyle = Object.assign({}, this.state, modalStyle)
 
     return (
-      <div {...this.props} style={modalStyle} onClick={this.hideOnOuterClick} data-modal="true">
+      <div {..._filteredProps(this.props)} style={modalStyle} onClick={this.hideOnOuterClick} data-modal="true">
         <div className={this.props.containerClassName} style={containerStyle}>
           {this.props.children}
         </div>
@@ -86,4 +86,19 @@ export default class Modal extends React.Component{
     )
   }
 }
+
+function _filteredProps(props) {
+  const filtered = Object.assign({}, props);
+  [
+    'containerStyle',
+    'containerClassName',
+    'closeOnOuterClick',
+    'show',
+    'onClose'
+  ].map( p => {
+    delete filtered[p]
+  })
+  return filtered
+}
+
 export var closeStyle = styles.close
