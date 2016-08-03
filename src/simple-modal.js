@@ -11,11 +11,11 @@ export default class Modal extends React.Component{
 
     let opacity = 0,
       display = 'block',
-      visibility = 'hidden';
+      visibility = 'hidden'
 
     if(props.show){
-      opacity = 1;
-      display = 'block';
+      opacity = 1
+      display = 'block'
       visibility = 'visible'
     }
 
@@ -24,13 +24,13 @@ export default class Modal extends React.Component{
       display,
       visibility,
       show: props.show
-    };
+    }
 
   }
 
   hideOnOuterClick(event){
     if(this.props.closeOnOuterClick === false) return
-    if(event.target.dataset.modal) this.props.onClose(event)
+    if(event.target.dataset.modal && this.props.onClose instanceof Function) this.props.onClose(event)
   }
 
   componentWillReceiveProps(props){
