@@ -94,7 +94,8 @@ function _filteredProps(props) {
     'containerClassName',
     'closeOnOuterClick',
     'show',
-    'onClose'
+    'onClose',
+    'transitionSpeed'
   ].map( p => {
     delete filtered[p]
   })
