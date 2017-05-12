@@ -1,10 +1,10 @@
-##Simple React Modal
+## Simple React Modal
 
-##Install
+## Install
 
 `npm install simple-react-modal`
 
-###Simple?
+### Simple?
 
 ~~~js
 <Modal show={this.state.show} onClose={this.close}>
@@ -12,7 +12,7 @@
 </Modal>
 ~~~
 
-##Transitions
+## Transitions
 
 CSS powered transitions!
 
@@ -26,7 +26,7 @@ In your css file have a transition for the opacity: `transition: 'opacity 1s eas
 
 Now the component will open with your transition, and wait to hide until it finishes! Don't like transitions? Leave out the prop and everything works the same.
 
-##Full Example
+## Full Example
 
 An incredibly simple modal dialog, because after writing [this post](http://reactjsnews.com/modals-in-react/), I found none of the ones listed let you easily overwrite the css!
 
@@ -72,7 +72,7 @@ export default class App extends React.Component{
 }
 ~~~
 
-###props
+### props
 
 - `closeOnOuterClick`: If someone clicks outside of the modal when it's in focus, should it close? You choose. (bool)
 - `show`: true or false
