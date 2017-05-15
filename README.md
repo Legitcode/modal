@@ -52,7 +52,7 @@ export default class App extends React.Component{
   render(){
     return (
       <div>
-      <a onClick={this.show.bind(this)}>Open Modal</a>
+      <a onClick={this.show}>Open Modal</a>
       <Modal
       className="test-class" //this will completely overwrite the default css completely
       style={{background: 'red'}} //overwrites the default background
@@ -60,9 +60,9 @@ export default class App extends React.Component{
       containerClassName="test"
       closeOnOuterClick={true}
       show={this.state.show}
-      onClose={this.close.bind(this)}>
+      onClose={this.close}>
 
-      <a style={closeStyle} onClick={this.close.bind(this)}>X</a>
+      <a style={closeStyle} onClick={this.close}>X</a>
       <div>hey</div>
 
       </Modal>
